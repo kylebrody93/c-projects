@@ -1,2 +1,2 @@
 # c-projects
-this is where il put projects as i learn c
+this is where i'll put projects as i learn c
