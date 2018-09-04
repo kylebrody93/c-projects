@@ -1,8 +1,10 @@
-#include <stdio.h>
 
+#include <stdio.h>
 int main(void)
-{
+{	
 	int a;
+	//main is label for "goto" at the end of the script 
+	main:
 	printf("What would you like to do? 1. add 2. multiply 3. divide. \n");
 	scanf("%d", &a);
 	//if the user enters "1" they can add
@@ -32,6 +34,11 @@ int main(void)
 			j=h/i;
 			printf("%d \n\n", j);
 		}
-	printf("thank you \n");
+		//if the user enters an invalid # when prompted, i.e. '5'
+		else{
+			printf("error. you must enter 1, 2, or 3... \n\n");
+		}
+	//loops the script
+	goto main;
 	return 0;
 }
