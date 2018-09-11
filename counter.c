@@ -1,3 +1,4 @@
+//THIS console app lets the user count a decided number of times by a decided number
 #include <stdio.h>
 int main(void)
 {	
