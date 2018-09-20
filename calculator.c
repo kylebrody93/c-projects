@@ -2,6 +2,8 @@
   Made for my own learning purposes.*/
 #include <stdio.h>
 
+#include <stdio.h>
+
 int main(void)
 {
 	//declaring variables for the user to decide on.
@@ -35,51 +37,51 @@ int main(void)
 				result=num1+num2;
 				printf("%d \n\n", result);
 			}
-				else
-					if(operation == 2){
-						result=num1-num2;
-						printf("%d \n\n", result);
-					}
-						else
-							if(operation == 3){
-								result=num1*num2;
-								printf("%d \n\n", result);
-							}
-								else
-									if(operation == 4){
-										result=num1/num2;
-										printf("%d \n\n", result);
-									}
+			else if(operation == 2){
+					result=num1-num2;
+					printf("%d \n\n", result);
+				}
+				
+			else if(operation == 3){
+					result=num1*num2;
+					printf("%d \n\n", result);
+				}
+							
+			else if(operation == 4){
+					result=num1/num2;
+					printf("%d \n\n", result);
+				}
+									
 		//here the user can continue to work with their first result. I used an infinite for loop to continue the MATH
 		
- for( ; ; ) {	
+	for( ; ; ) {	
 				
-		printf("1- add 2- subtract 3- multiply 4- divide\n\n");
-		scanf("%d", &operation);
-		
-		printf("enter a number: \n\n");
-		scanf("%d", &num2);
-		//this time the math will use the original result to return a new value for the result variable
+			printf("1- add 2- subtract 3- multiply 4- divide\n\n");
+			scanf("%d", &operation);
+			
+			printf("enter a number: \n\n");
+			scanf("%d", &num2);
+			//this time the math will use the original result to return a new value for the result variable
 			if(operation == 1){
 				result=result+num2;
 				printf("%d \n\n", result);
 			}
-				else
-					if(operation == 2){
-						result=result-num2;
-						printf("%d \n\n", result);
-					}
-						else
-							if(operation == 3){
-								result=result*num2;
-								printf("%d \n\n", result);
-							}
-								else 
-									if(operation == 4){
-										result=result/num2;
-										printf("%d \n\n", result);
-									}
+			else if(operation == 2){
+					result=result-num2;
+					printf("%d \n\n", result);
+			}
+				
+			else if(operation == 3){
+				result=result*num2;
+				printf("%d \n\n", result);
+			}
+				
+			else if(operation == 4){
+				result=result/num2;
+				printf("%d \n\n", result);
+			}
  
+									
 	}
 	return 0;
-}
+}	
