@@ -1,7 +1,6 @@
-/* this program was a personal problem solving excercize idea I had. It takes a users birth date and tells them how many years, days and 
-hours old they are, given the current date. It isn't perfect because I made the calculations as if every month contained 30 days, so the 
-results will be off by a few days. I still have to finish the portion that calculates hours when taking into account the hours since their
-last birthday. for now though, I am taking a break on thisl. I came up with this idea to practice C and problem solving in general.*/
+/* this program was a personal problem solving excercize idea I had. It takes a users birth date and tells them how many years, 
+days and hours, minutes, seconds, and milliseconds old they are, given the current date.  
+*/
 
 #include <stdio.h>
 
@@ -17,7 +16,6 @@ int birthYear;
 
 //function declarations
 void ageYears();
-void ageDays();
 
 int main(void)
 {
@@ -56,38 +54,53 @@ int main(void)
 
 /********************************ageYears(), ageDays()********************************************/
 
-//this function prints back the users age in years
+//this function prints back the users age in years, days, hours, minutes, seconds
 void ageYears(){
 	int yearsOld;
 	int daysOld;
 	int hoursOld;
+	int minutesOld;
+	int secondsOld;
+	int milliOld;
+	
 	//variable to hold remainder days after last bday for that year
 	int remainderDays;
 	//yields the final result for how many days old someone is
 	int daysOldFinal; 
 	
+	
 	//if the current day is greater than or equal to bday and current month <= bday month
 	
 	if( currentDay >= birthDay && currentMonth >= birthMonth){
 		yearsOld = (currentYear - birthYear);
-		printf("you are %d years old \n", yearsOld);
+		printf("you are %d years old \n\n", yearsOld);
 	}
 	else if( currentDay <= birthDay && currentMonth <= birthMonth ){
 		yearsOld = (currentYear - birthYear - 1);
-		printf("you are %d years old \n", yearsOld);
+		printf("you are %d years old \n\n", yearsOld);
 	}
 	else if( currentDay > birthDay && currentMonth < birthMonth ){
 		yearsOld = (currentYear - birthYear - 1);
-		printf("you are %d years old \n", yearsOld);	
+		printf("you are %d years old \n\n", yearsOld);	
 	}
 	
 	daysOld = ( yearsOld * 365 ) + (currentMonth *30) - currentDay;
 	remainderDays = ( 12 * 30) - ( birthMonth * 30);
-	daysOldFinal = ( daysOld + remainderDays);
-	printf ("%d days old \n", daysOldFinal);
+	//the reason im adding + 7 to years old is because there are 7 31 day months in a year.
+	daysOldFinal = ( daysOld + remainderDays) + ( 7 * yearsOld);
+	printf ("%d days old \n\n", daysOldFinal);
 	
-	//needs to be fixed
-	hoursOld = ( daysOld * 24);
-	printf("%d hours old \n", hoursOld);
+	//multiplying the final number of days old the user is by 24- the number of hours in a day.
+	hoursOld = ( daysOldFinal * 24 );
+	printf("%d hours old \n\n", hoursOld);
+	
+	minutesOld = ( hoursOld * 60 );
+	printf("%d minutes old \n\n", minutesOld );
+	
+	secondsOld = ( minutesOld * 60 );
+	printf("%d seconds old\n\n", secondsOld);
+	
+	milliOld = ( secondsOld * 1000 );
+	printf( "%d milliseconds old\n\n", milliOld);
 		
 }
